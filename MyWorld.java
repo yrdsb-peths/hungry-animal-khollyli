@@ -30,7 +30,7 @@ public class MyWorld extends World
         addObject(scoreLabel, 50, 50);
         
         
-        spawnApple();
+        spawnFood();
     }
     
     /**
@@ -45,9 +45,9 @@ public class MyWorld extends World
     /**
      * Increase score
      */
-    public void increaseScore()
+    public void increaseScore(int value)
     {
-        score++;
+        score += value;
         scoreLabel.setValue(score);
         
         if(score % 5 == 0)
@@ -57,14 +57,21 @@ public class MyWorld extends World
     }
     
     /**
-     * Create a new apple at random location at top of screen
+     * Create a new food at random location at top of screen
      */
-    public void spawnApple()
+    public void spawnFood()
     {
-        Apple apple = new Apple();
-        apple.setSpeed(level);
+        int rand = Greenfoot.getRandomNumber(2);
+        Food food;
+        if(rand == 0)
+        {
+            food = new Apple();
+        }
+        else
+        {
+            food = new Strawberry();   
+        }
         int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
-        addObject(apple, x, y);
+        addObject(food, x, 0);
     }
 }
