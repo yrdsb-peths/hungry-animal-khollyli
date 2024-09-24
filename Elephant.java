@@ -78,7 +78,7 @@ public class Elephant extends Actor
             facing = "right";
         }
         
-        // Remove apple if elephant eats it
+        // Removes food if elephant eats it
         eat();
         
         // Animate the elephant
@@ -90,13 +90,18 @@ public class Elephant extends Actor
      */
     public void eat()
     {
-        if(isTouching(Apple.class))
+        if(isTouching(Food.class))
         {
-            removeTouching(Apple.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.spawnApple();
-            world.increaseScore();
-            elephantSound.play();
+            Actor actor = getOneIntersectingObject(Food.class);
+            if(actor != null)
+            {
+                Food food = (Food) actor;
+                MyWorld world = (MyWorld) getWorld();
+                
+                world.increaseScore(food.value);
+                getWorld().removeObject(food);
+                world.spawnFood();
+            }
         }
     }
 }

@@ -6,9 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Kholly Li
  * @version September 2024
  */
-public class Apple extends Actor
+public class Apple extends Food
 {
     int speed = 1;
+    
+    public Apple()
+    {
+        super(1);
+    }
     
     public void act()
     {
