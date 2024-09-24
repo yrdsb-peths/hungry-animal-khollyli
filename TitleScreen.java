@@ -17,7 +17,7 @@ public class TitleScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
 
-        addObject(titleLabel, getWidth()/2 - 40, 100);
+        addObject(titleLabel, getWidth()/2, 100);
         prepare();
     }
 
@@ -41,7 +41,7 @@ public class TitleScreen extends World
     private void prepare()
     {
         Elephant elephant = new Elephant();
-        addObject(elephant,479,87);
+        addObject(elephant,100,200);
         elephant.setLocation(494, 120);
         Label label = new Label("Use \u2190 and \u2192 to Move", 40);
         addObject(label,220,257);
@@ -55,5 +55,6 @@ public class TitleScreen extends World
         label.setLocation(300,261);
         label2.setLocation(190,318);
         label2.setLocation(300,319);
+        elephant.setLocation(300,190);
     }
 }
